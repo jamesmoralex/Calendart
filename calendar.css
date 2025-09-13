@@ -1,0 +1,176 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            padding: 20px;
+            background-image: url("blue.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .sep-calendar {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .sep-calendar:hover {
+            transform: translateY(-5px);
+        }
+        
+        .sep-calendar h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.4rem;
+        }
+        
+        .days, .date {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+        
+        .days li {
+            font-weight: bold;
+            color: #7f8c8d;
+            padding: 5px;
+        }
+        
+        .date a, .date li {
+            display: block;
+            padding: 8px 5px;
+            text-decoration: none;
+            color: #2c3e50;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            padding: 20px;
+            color: red;
+        }
+        .date li {
+            color: #000000;
+        }
+        
+        .date a {
+            color: #d40e0e;
+            font-weight: 500;
+        }
+        
+        .date a:hover {
+            background-color: #ecf0f1;
+        }
+        
+        .special {
+            position: relative;
+        }
+        
+        .special::after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+        }
+        
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        
+        .popup-overlay.active .popup-content {
+            transform: translateY(0);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+            background: none;
+            border: none;
+            transition: color 0.2s;
+        }
+        
+        .close-btn:hover {
+            color: #e74c3c;
+        }
+        
+        .popup-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        
+        .popup-details {
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .calendar {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
